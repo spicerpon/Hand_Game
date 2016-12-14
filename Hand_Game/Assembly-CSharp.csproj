@@ -38,10 +38,10 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UnityEngine">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+      <HintPath>C:/Program Files/Unity_2/Editor/Data/Managed/UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+      <HintPath>C:/Program Files/Unity_2/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -111,6 +111,8 @@
      <Compile Include="Assets\LeapMotion\Scripts\VR\LeapVRTemporalWarping.cs" />
      <Compile Include="Assets\LeapMotion\Scripts\VR\TemporalWarpingStatus.cs" />
      <Compile Include="Assets\LeapMotion\Scripts\VR\VRHeightOffset.cs" />
+     <Compile Include="Assets\Scripts\Camera_Move.cs" />
+     <Compile Include="Assets\Scripts\Cat_AI.cs" />
      <None Include="Assets\Resources\Kitten\Shaders\Normal-Diffuse.shader" />
      <None Include="Assets\Plugins\donotdelete.txt" />
      <None Include="Assets\LeapMotion\Resources\LeapCG.cginc" />
@@ -123,18 +125,21 @@
      <None Include="Assets\LeapMotion\Resources\PassthroughForeground.shader" />
      <None Include="Assets\LeapMotion\Resources\PassthroughBackground.shader" />
      <None Include="Assets\LeapMotion\Version.txt" />
- <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>C:/Users/multi/Documents/GitHub/Hand_Game/Hand_Game/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Program Files/Unity_2/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ <HintPath>C:/Program Files/Unity_2/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="LeapCSharp.NET3.5">
- <HintPath>C:/Users/multi/Documents/GitHub/Hand_Game/Hand_Game/Assets/Plugins/LeapCSharp.NET3.5.dll</HintPath>
+ <HintPath>C:/Users/KOGAMES/Documents/GitHub/Hand_Game/Hand_Game/Assets/Plugins/LeapCSharp.NET3.5.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{EAD1DEB9-5568-9457-0643-96FDC5C3BE7C}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+    <ProjectReference Include="Assembly-UnityScript-firstpass.unityproj">
+      <Project>{7784C369-815C-CD97-DCE1-95F1E96292B3}</Project>      <Name>Assembly-UnityScript-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
