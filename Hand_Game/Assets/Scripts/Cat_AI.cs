@@ -31,6 +31,8 @@ public class Cat_AI : MonoBehaviour {
 		anim.AddClip (walkAnimation, "Walk");
 		anim.AddClip (runAnimation, "Run");
 		anim.AddClip (jumpPoseAnimation, "Jump");
+
+		anim.CrossFade ("Idle");
 	}
 	
 	// Update is called once per frame
