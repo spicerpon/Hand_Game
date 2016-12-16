@@ -45,6 +45,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Destructible Crate\Example\Scripts\Throw.js" />
+     <Compile Include="Assets\Destructible Crate\Example\Standard Assets\Character Controllers\Sources\Scripts\CharacterMotor.js" />
+     <Compile Include="Assets\Destructible Crate\Example\Standard Assets\Character Controllers\Sources\Scripts\FPSInputController.js" />
+     <Compile Include="Assets\Destructible Crate\Example\Standard Assets\Character Controllers\Sources\Scripts\PlatformInputController.js" />
+     <Compile Include="Assets\Destructible Crate\Example\Standard Assets\Character Controllers\Sources\Scripts\ThirdPersonController.js" />
      <Compile Include="Assets\Resources\Kitten\Scripts\kittenEvents.js" />
      <Compile Include="Assets\Resources\Kitten\Scripts\kittenIthcing.js" />
      <Compile Include="Assets\Resources\Kitten\Scripts\kittenMeow.js" />
