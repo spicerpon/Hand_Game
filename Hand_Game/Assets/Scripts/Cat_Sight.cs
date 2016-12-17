@@ -5,8 +5,8 @@ public class Cat_Sight : MonoBehaviour {
 	   
 	private Transform playerTrans;
 	private Vector3 rayDirection;
-	private int FieldOfView = 45;
-	private int ViewDistance = 2;
+	private int FieldOfView = 60;
+	private int ViewDistance = 3;
 
 	Cat_AI cat;
 
@@ -29,16 +29,21 @@ public class Cat_Sight : MonoBehaviour {
 				
 				if(hit.collider.tag == "Player")
 				{
-					print("사람 발견!!!");
-					cat.State = Cat_AI.CharacterState.Danger;
+					print("Human Detected!");
+					if (cat.closeness < 5) {
+						cat.State = Cat_AI.CharacterState.Danger;
+					}
+									
+					if (cat.closeness >= 5 && Hand_Status.handsign) {
+						print("Following!");
+						cat.State = Cat_AI.CharacterState.Following;
+					}
 				}									
 			}
 
 		}
 	}
-
-
-
+		
 	// Update is called once per frame
 	void Update () {
 		DetectAspect ();

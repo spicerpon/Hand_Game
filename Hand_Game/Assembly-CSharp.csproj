@@ -117,6 +117,7 @@
      <Compile Include="Assets\Scripts\Camera_Move.cs" />
      <Compile Include="Assets\Scripts\Cat_AI.cs" />
      <Compile Include="Assets\Scripts\Cat_Sight.cs" />
+     <Compile Include="Assets\Scripts\Hand_Status.cs" />
      <None Include="Assets\Resources\Kitten\Shaders\Normal-Diffuse.shader" />
      <None Include="Assets\Plugins\donotdelete.txt" />
      <None Include="Assets\LeapMotion\Resources\LeapCG.cginc" />

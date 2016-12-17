@@ -54,7 +54,7 @@ namespace Leap.Unity {
 
     private Transform armFrontLeft, armFrontRight, armBackLeft, armBackRight;
     private Hand hand_;
-
+	public static bool handsign = false;
     public override ModelType HandModelType {
       get {
         return ModelType.Graphics;
@@ -142,7 +142,19 @@ namespace Leap.Unity {
       if (_showArm) {
         updateArm();
       }
+	  
+			if (hand_.GrabStrength > 0.8f) {
+				Hand_Status.handsign = true;
+			} 
+			else {
+				Hand_Status.handsign = false;
+			}
 
+			if (hand_.PinchStrength > 0.5f && !Hand_Status.handsign) {
+				Hand_Status.Fingertip = true;
+			} 
+			
+			//Debug.Log (handsign);
       //The cylinder transforms are deterimined by the spheres they are connected to
       updateCylinders();
     }
