@@ -151,12 +151,11 @@ public class Cat_AI : MonoBehaviour {
 			Navi.destination = Player.position;
 
 			float distance = Vector3.Distance (transform.position, Player.transform.position);
-			Debug.Log (distance);
-
+		
 			if (distance < 1.5f) {
 				State = CharacterState.Idle;
 				anim.CrossFade ("Idle");
-				Navi.Stop ();
+				Navi.ResetPath ();
 			}
 			else
 				anim.CrossFade ("Run");
