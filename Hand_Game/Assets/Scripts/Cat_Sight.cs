@@ -26,7 +26,7 @@ public class Cat_Sight : MonoBehaviour {
 		{
 			if(Physics.Raycast(transform.position, rayDirection, out hit, ViewDistance))
 			{
-				
+					
 				if(hit.collider.tag == "Player")
 				{
 					print("Human Detected!");
@@ -38,14 +38,33 @@ public class Cat_Sight : MonoBehaviour {
 						print("Following!");
 						cat.State = Cat_AI.CharacterState.Following;
 					}
-				}									
-			}
 
+				}	
+			
+			}
 		}
+	}
+
+	void DetectBox()
+	{
+		RaycastHit[] hits;
+		hits = Physics.RaycastAll (transform.position, transform.forward, 1f);
+
+		for(int a = 0; a < hits.Length; a++)
+		{
+			if (hits [a].collider.tag == "Box") 
+			{
+				print("Curious!");
+				transform.LookAt (hits[a].collider.transform);
+				cat.State = Cat_AI.CharacterState.Curious;
+			}
+		}
+
 	}
 		
 	// Update is called once per frame
 	void Update () {
 		DetectAspect ();
+		DetectBox ();
 	}
 }

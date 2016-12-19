@@ -34,12 +34,12 @@ public class Cat_AI : MonoBehaviour {
 		Following = 2,
 		Running = 3,
 		Danger = 4,
+		Curious = 5
 	}
 	public CharacterState State; //고양이의 상태 부여
 
 	// Use this for initialization
 	void Start () {
-
 		Navi = GetComponent<NavMeshAgent> ();
 
 		anim = GetComponent<Animation> ();
@@ -68,7 +68,7 @@ public class Cat_AI : MonoBehaviour {
 
 	void MoveRandom()
 	{
-		if (State == CharacterState.Danger || State == CharacterState.Following || Hand_Status.Fingertip) {
+		if (State == CharacterState.Danger || State == CharacterState.Following || State == CharacterState.Curious ||Hand_Status.Fingertip) {
 			return;
 		}
 
@@ -116,21 +116,27 @@ public class Cat_AI : MonoBehaviour {
 			State = CharacterState.Idle;
 			anim.CrossFade ("Idle");
 		}
-
-		//Debug.Log (moveDirection);
-
+			
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
+
 		if (State == CharacterState.Danger) {
 			StartCoroutine ("Escape");
 		}
 
+		if (State == CharacterState.Curious) {
+			GetComponent<Animation>().Play("Ithcing");
+			moveDirection *= -1;
+			transform.rotation = Quaternion.LookRotation(moveDirection);
+			State = CharacterState.Idle;
+		}
+
 		var move = moveSpeed / 10f * Time.deltaTime;
 
-		if (State != CharacterState.Idle && State != CharacterState.Following)
+		if (State != CharacterState.Idle && State != CharacterState.Following && State != CharacterState.Curious)
 			transform.position += moveDirection * move;
 
 		if (Hand_Status.Fingertip && closeness >= 5) 
