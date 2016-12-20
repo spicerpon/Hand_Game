@@ -68,10 +68,12 @@ public class Cat_AI : MonoBehaviour {
 
 	void MoveRandom()
 	{
-		if (State == CharacterState.Danger || State == CharacterState.Following || State == CharacterState.Curious ||Hand_Status.Fingertip) {
+		if (State == CharacterState.Danger || State == CharacterState.Following || State == CharacterState.Curious || Hand_Status.Fingertip) {
 			return;
-		}
 
+			//고양이가 특수한 상태일 때는 랜덤 무브를 실행하지 않음
+		} 
+	
 		moveSpeed = Random.Range (minSpeed, maxSpeed);
 
 		if (moveSpeed > 6) {
@@ -124,7 +126,9 @@ public class Cat_AI : MonoBehaviour {
 
 
 		if (State == CharacterState.Danger) {
-			StartCoroutine ("Escape");
+			StartCoroutine ("Escape"); 
+
+			//친밀도가 낮을때 사람을 발견했을 시 실행
 		}
 
 		if (State == CharacterState.Curious) {
@@ -132,6 +136,8 @@ public class Cat_AI : MonoBehaviour {
 			moveDirection *= -1;
 			transform.rotation = Quaternion.LookRotation(moveDirection);
 			State = CharacterState.Idle;
+
+			//시야에 박스가 있을때는 잠깐 멈춰서서 고민하는 상태로 전환
 		}
 
 		var move = moveSpeed / 10f * Time.deltaTime;
@@ -146,6 +152,8 @@ public class Cat_AI : MonoBehaviour {
 			anim.CrossFade ("Idle");
 			Player = GameObject.FindWithTag("Player").transform;
 			transform.LookAt (Player);
+
+			//손가락으로 신호를 주면 사람쪽을 쳐다보게 하는 상태
 		}
 
 
@@ -161,10 +169,12 @@ public class Cat_AI : MonoBehaviour {
 			if (distance < 1.5f) {
 				State = CharacterState.Idle;
 				anim.CrossFade ("Idle");
-				Navi.ResetPath ();
+				Navi.ResetPath (); //목적지에 도달하면 기본 상태로 변경
 			}
 			else
 				anim.CrossFade ("Run");
+
+			//사람이 손짓햇을때 쫓아가는 상태
 		}
 
 	

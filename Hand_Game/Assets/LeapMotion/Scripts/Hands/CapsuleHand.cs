@@ -144,14 +144,14 @@ namespace Leap.Unity {
       }
 	  
 			if (hand_.GrabStrength > 0.8f) {
-				Hand_Status.handsign = true;
+				Hand_Status.handsign = true; //따라오라는 손짓
 			} 
 			else {
 				Hand_Status.handsign = false;
 			}
 
 			if (hand_.PinchStrength > 0.5f && !Hand_Status.handsign) {
-				Hand_Status.Fingertip = true;
+				Hand_Status.Fingertip = true; //쳐다보라는 손짓
 			} 
 			
 			//Debug.Log (handsign);

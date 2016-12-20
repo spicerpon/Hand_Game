@@ -32,11 +32,15 @@ public class Cat_Sight : MonoBehaviour {
 					print("Human Detected!");
 					if (cat.closeness < 5) {
 						cat.State = Cat_AI.CharacterState.Danger;
+
+						//시야 안에 사람 발견
 					}
 									
 					if (cat.closeness >= 5 && Hand_Status.handsign) {
 						print("Following!");
 						cat.State = Cat_AI.CharacterState.Following;
+
+						//친밀도가 상승한 뒤 시야 안에 손짓하는 사람 발견
 					}
 
 				}	
@@ -57,6 +61,8 @@ public class Cat_Sight : MonoBehaviour {
 				print("Curious!");
 				transform.LookAt (hits[a].collider.transform);
 				cat.State = Cat_AI.CharacterState.Curious;
+
+				//시야 안에 들어온 물체중에 박스가 있을 때의 상태
 			}
 		}
 
